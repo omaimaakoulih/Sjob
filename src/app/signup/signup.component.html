@@ -21,19 +21,19 @@
   
           <div class="card bg-glass">
             <div class="card-body px-4 py-5 px-md-5">
-              <form>
+              <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div data-mdb-input-init class="form-outline">  
                       <label class="form-label" for="form3Example1">First name</label>
-                      <input type="text" id="form3Example1" class="form-control" placeholder="first name"/>
+                      <input type="text" id="form3Example1" class="form-control" placeholder="first name" formControlName="firstName">
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div data-mdb-input-init class="form-outline">
                       <label class="form-label" for="form3Example2">Last name</label>
-                      <input type="text" id="form3Example2" class="form-control" placeholder="last name"/>
+                      <input type="text" id="form3Example2" class="form-control" placeholder="last name" formControlName="lastName"/>
                     </div>
                   </div>
                 </div>
@@ -41,13 +41,55 @@
                 <!-- Email input -->
                 <div data-mdb-input-init class="form-outline mb-4">
                     <label class="form-label" for="form3Example3">Email address</label>
-                  <input type="email" id="form3Example3" class="form-control" placeholder="email@gmail.com"/>
+                  <input type="email" id="form3Example3" class="form-control" placeholder="email@gmail.com" formControlName="email"/>
                 </div>
+
+                <!-- Country input Select-->
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <label class="form-label" for="form3Example4">Country</label>
+                  <select id="form3Example4" class="form-control" formControlName="country">
+                    <option value="" disabled selected>Select your country</option>
+                    @for(country of countries; track country){
+                      <option [value]="country">{{country}}</option>
+                    }
+                  </select>
+              </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div data-mdb-input-init class="form-outline">  
+                      <label class="form-label" for="form3Example5">Code</label>
+                      <select id="form3Example5" class="form-control" formControlName="phoneCode">
+                        <option value="" disabled selected>Select your Code</option>
+                        @for(code of phoneCodes; track code){
+                          <option [value]="code">{{code}}</option>
+                        }
+                        
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div data-mdb-input-init class="form-outline">
+                      <label class="form-label" for="form3Example6">Phone</label>
+                      <input type="text" id="form3Example6" class="form-control" placeholder="phone" formControlName="phone"/>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- gender input Select-->
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <label class="form-label" for="form3Example8">Gender</label>
+                  <select id="form3Example8" class="form-control" formControlName="gender">
+                    <option value="" disabled selected>Gender</option>
+                    <option value="MALE">MALE</option>
+                    <option value="FEMALE">FEMALE</option>
+                  </select>
+              </div>
   
                 <!-- Password input -->
                 <div data-mdb-input-init class="form-outline mb-4">
-                    <label class="form-label" for="form3Example4">Password</label>
-                  <input type="password" id="form3Example4" class="form-control" placeholder="password"/>
+                    <label class="form-label" for="form3Example7">Password</label>
+                  <input type="password" id="form3Example7" class="form-control" placeholder="password" formControlName="password"/>
                 </div>
   
                 <!-- Checkbox -->
