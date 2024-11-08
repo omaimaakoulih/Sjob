@@ -15,7 +15,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 ### Clone the repo
 
 ```bash
-git clone https://github.com/xyz/zipzod@latest
+git clone https://github.com/omaimaakoulih/Sjob.git
 cd Sjob
 ```
 
